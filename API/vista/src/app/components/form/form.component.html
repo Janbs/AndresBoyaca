@@ -1,0 +1,53 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
+  <fieldset>
+    <legend>Form Name</legend>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="nombre">Nombre</label>
+      <div class="col-md-5">
+        <input [(ngModel)]="model.nombre" id="nombre" name="nombre" type="text" placeholder="Nombre registro" class="form-control input-md"
+          required>
+        <span class="help-block">Ingrese el nombre del registro</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tipo_identificacion">Tipo Identificación</label>
+      <div class="col-md-5">
+        <select [(ngModel)]="model.tipo_identificacion" id="tipo_identificacion" name="tipo_identificacion" class="form-control">
+          <option *ngFor="let tipo of arrTipoIden" [ngValue]="tipo">{{tipo}}</option>
+    </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="identificacion">Identificación</label>
+      <div class="col-md-5">
+        <input [(ngModel)]="model.identificacion" id="identificacion" name="identificacion" type="text" placeholder="" class="form-control input-md"
+          required="">
+        <span class="help-block">Ingrese el numero de identificación</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="numero">Número</label>
+      <div class="col-md-5">
+        <input [(ngModel)]="model.numero" id="numero" name="numero" type="number" placeholder="" class="form-control input-md">
+        <span class="help-block">Ingrese número de contacto</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="fecha_nacimiento">Fecha Nacimiento</label>
+      <div class="col-md-5">
+        <input [(ngModel)]="model.fecha_nacimiento" id="fecha_nacimiento" name="fecha_nacimiento" type="date" placeholder="" class="form-control input-md"
+          required="">
+        <span class="help-block">Ingrese fecha nacimiento</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="enviar">Accion</label>
+      <div class="col-md-8">
+        <button *ngIf="bTipo == false" class="btn btn-primary">Crear</button>
+        <button *ngIf="bTipo == true" class="btn btn-success">Modificar</button>
+        <button *ngIf="bTipo == false" id="limpiar" name="limpiar" class="btn btn-warning">Limpiar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
